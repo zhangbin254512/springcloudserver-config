@@ -5,11 +5,11 @@
 
 ---
 spring:
-  prolfies: dev
+  profiles: dev
   application: 
     name: springcloud-config-atzhangbin-dev
 ---
 spring:
-  prolfies: test
+  profiles: test
   application: 
     name: springcloud-config-atzhangbin-test
