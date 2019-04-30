@@ -1,0 +1,91 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+server: 
+  port: 8001
+
+spring:
+  profiles: dev
+  applicatin:
+    name: springcloud-config-eureka-client
+  
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml    #mybatis配置文件所在路径
+  type-aliases-package: com.zhangbin.springcloud.entitis  #所有entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+  
+spring:
+  application:
+    name: springcloud-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource		#当前数据库源操作类型
+    driver-class-name: oracle.jdbc.OracleDriver			#oracal驱动包
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: MBRFIN
+    password: MBRFIN
+    dbcp2:
+      min-idle: 5 										#数据库连接池的最小维持连接数
+      initial-size: 5									#初始化连接数
+      max-total: 5										#最大连接数
+      max-wait-millis:
+      
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: servercloud-dept8001 #自定义服务名称信息
+    prefer-ip-address: true #访问路径可以显示IP地址
+    
+info:
+  app.name: atzhangbin-springcloudprovider
+  company.name: www.zhangbin.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+---
+server: 
+  port: 8002
+
+spring:
+  profiles: test
+  applicatin:
+    name: springcloud-config-eureka-client
+  
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml    #mybatis配置文件所在路径
+  type-aliases-package: com.zhangbin.springcloud.entitis  #所有entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+  
+spring:
+  application:
+    name: springcloud-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource		#当前数据库源操作类型
+    driver-class-name: oracle.jdbc.OracleDriver			#oracal驱动包
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: MBRFIN
+    password: MBRFIN
+    dbcp2:
+      min-idle: 5 										#数据库连接池的最小维持连接数
+      initial-size: 5									#初始化连接数
+      max-total: 5										#最大连接数
+      max-wait-millis:
+      
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://eureka7001.com:7002/eureka/
+  instance:
+    instance-id: servercloud-dept8002 #自定义服务名称信息
+    prefer-ip-address: true #访问路径可以显示IP地址
+    
+info:
+  app.name: atzhangbin-springcloudprovider
+  company.name: www.zhangbin.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+      
