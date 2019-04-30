@@ -53,8 +53,8 @@ mybatis:
   - classpath:mybatis/mapper/**/*.xml
   
 spring:
-  application:
   profiles: test
+  application:
     name: springcloud-config-eureka-client
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource		#当前数据库源操作类型
