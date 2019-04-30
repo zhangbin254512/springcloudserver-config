@@ -1,0 +1,14 @@
+﻿spring:
+  profiles:
+    active:
+    - dev
+---
+spring:
+  profiles: dev
+  applicatin:
+    name: springcloud-config-atzhangbin-dev
+---
+spring:
+  profiles: test
+  applicatin:
+    name: springcloud-config-atzhangbin-test
